@@ -1,0 +1,33 @@
+llm:
+  model: "anthropic/claude-sonnet-4-5-20250929"
+  temperature: 0.2
+  api_key_env: "ANTHROPIC_API_KEY"
+
+kubernetes:
+  kubeconfig: "~/.kube/config"
+  context: null
+
+safety:
+  excluded_namespaces:
+    - kube-system
+    - kube-public
+    - kube-node-lease
+  max_blast_radius: "medium"
+  max_concurrent_experiments: 1
+  require_healthy_cluster: true
+  dry_run: false
+  auto_rollback: true
+  rollback_timeout_seconds: 300
+
+target:
+  namespaces: []
+  label_selectors: {}
+
+observer:
+  health_check_interval_seconds: 5
+  endpoint_timeout_seconds: 10
+  monitor_duration_seconds: 60
+
+report:
+  output_dir: "./reports"
+  format: "markdown"
