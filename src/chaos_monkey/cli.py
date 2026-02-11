@@ -15,7 +15,7 @@ from chaos_monkey.config import load_config
 
 app = typer.Typer(
     name="chaos-monkey",
-    help="AI Chaos Monkey — Autonomous Kubernetes chaos engineering agent.",
+    help="AI Chaos Monkey - Autonomous Kubernetes chaos engineering agent.",
     no_args_is_help=True,
 )
 console = Console()
@@ -114,7 +114,7 @@ def run(
     config: Optional[str] = typer.Option(None, "--config", "-c"),
     dry_run: bool = typer.Option(False, "--dry-run"),
 ) -> None:
-    """Full autonomous loop: discover → analyze → plan → execute → observe → report."""
+    """Full autonomous loop: discover -> analyze -> plan -> execute -> observe -> report."""
     from chaos_monkey.agent.graph import build_graph
 
     cfg = _load(config)
